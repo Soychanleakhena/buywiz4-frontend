@@ -14,7 +14,7 @@ const ProductCard: FC = () => {
 
     const products = [
         {
-          id: 1,
+          id: "1",
           name: "3D™ wireless headset",
           price: 400,
           originalPrice: 500,
@@ -23,7 +23,7 @@ const ProductCard: FC = () => {
           colors: ['bg-white', 'bg-black', 'bg-gray-500']
         },
         {
-          id: 2,
+          id: "2",
           name: "PS2 DualShock 2 Wireless Controller",
           price: 29.99,
           originalPrice: 49.99,
@@ -32,7 +32,7 @@ const ProductCard: FC = () => {
           colors: ['bg-blue-900', 'bg-black', 'bg-white']
         },
         {
-          id: 3,
+          id: "3",
           name: "Wired Keyboard & Mouse Combo Pack",
           price: 32.99,
           originalPrice: 55.99,
@@ -41,7 +41,7 @@ const ProductCard: FC = () => {
           colors: ['bg-black', 'bg-gray-500', 'bg-white']
         },
         {
-          id: 4,
+          id: "4",
           name: "Logitech Streamcam",
           price: 199,
           originalPrice: 299,
@@ -50,7 +50,7 @@ const ProductCard: FC = () => {
           colors: ['bg-white', 'bg-black', 'bg-gray-500']
         },
         {
-          id: 5,
+          id: "5",
           name: "3D™ wireless headset",
           price: 387,
           originalPrice: 419,
@@ -59,7 +59,7 @@ const ProductCard: FC = () => {
           colors: ['bg-black', 'bg-gray-500', 'bg-white']
         },
         {
-          id: 6,
+          id: "6",
           name: "Bass Meets Clarity",
           price: 233,
           originalPrice: 400,
@@ -70,8 +70,8 @@ const ProductCard: FC = () => {
     ]
     
     const navigate = useNavigate();
-    const handleNavigation = () => {
-        navigate(webRoutes.productDetail);
+    const handleNavigation = (id: string) => {
+        navigate(`/product-detail/${id}`);
     };
 
     return (
@@ -79,7 +79,7 @@ const ProductCard: FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {products.map((product) => (
                 <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden group"
-                onClick={handleNavigation}
+                onClick={() => handleNavigation(product.id)}
                 >
                   <div className="relative aspect-square">
                     <img
