@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ShoppingCart, Heart, Search, ChevronDown, ChevronLeft, Star, Truck, RotateCcw, Shield, ChevronRight } from 'lucide-react'
 import Footer from '~/components/footer'
-import Navigation from '~/components/menu'
+import Navigation from '~/components/navigation'
 import { useParams } from 'react-router-dom'
 
 export interface ProductDetailProps {

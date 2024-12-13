@@ -1,12 +1,13 @@
 import React, { FC, useState } from 'react'
 import Footer from '~/components/footer'
-import Navigation from '~/components/menu'
+import Navigation from '~/components/navigation'
 import SideBar from '~/components/sideBard'
 import NewsLetter from './newsLetter'
 import ProductCard from '~/components/productCard'
+import { useAppContext } from '~/context/appContext'
 
 const Home = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true)
+  const { isMenuOpen, setIsMenuOpen } = useAppContext();
 
   return (
     <div className="min-h-screen bg-white">

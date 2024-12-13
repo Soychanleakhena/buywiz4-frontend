@@ -68,7 +68,7 @@ const ProductCard: FC = () => {
           colors: ['bg-red-500', 'bg-black', 'bg-white']
         },
     ]
-    
+
     const navigate = useNavigate();
     const handleNavigation = (id: string) => {
         navigate(`/product-detail/${id}`);

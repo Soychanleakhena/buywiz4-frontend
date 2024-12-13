@@ -1,16 +1,17 @@
 import { Search, Heart, ShoppingCart, ChevronDown } from "lucide-react"
 import { useState } from "react"
+import { useAppContext } from "~/context/appContext";
 
 
 const Navigation: React.FC = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { isMenuOpen, setIsMenuOpen } = useAppContext();
 
     return (
         <header className="border-b">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <a href="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-blue-600">eTrade</span>
+              <span className="text-2xl font-bold text-blue-600">BuyWiz</span>
             </a>
             <nav className="hidden md:flex items-center space-x-6">
               {['Home', 'Shop', 'Pages', 'About', 'Blog', 'Contact'].map((item) => (

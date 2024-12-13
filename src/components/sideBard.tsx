@@ -1,7 +1,9 @@
+import { useAppContext } from "~/context/appContext";
 import ProductCard from "./productCard"
 
 
 const SideBar = ({ children }: { children: React.ReactNode }) => {
+  const { isMenuOpen, setIsMenuOpen } = useAppContext();
 
     return(
         <>
@@ -17,7 +19,7 @@ const SideBar = ({ children }: { children: React.ReactNode }) => {
 
         <div className="grid grid-cols-12 gap-8">
           {/* Sidebar */}
-          <div className="col-span-12 lg:col-span-3">
+          <div className="col-span-12 lg:col-span-3 hidden md:block">
             <div className="space-y-6">
               {/* Categories */}
               <div>

@@ -1,19 +1,14 @@
 import { BrowserRouter, Route, Routes, RouterProvider } from "react-router-dom";
 import appRoutes, { AppRoute } from "./routes/appRoutes";
 import Home from "./pages/homePage/homePage";
+import { AppProvider } from "./context/appContext";
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      {/* <BrowserRouter>
-        <Routes>
-          {appRoutes.map((route, index) => (
-            <Route key={index} path={route.path} element={route.element} />
-          ))}
-        </Routes>
-      </BrowserRouter> */}
-
-      <RouterProvider router={appRoutes} />
+      <AppProvider>
+        <RouterProvider router={appRoutes} />
+      </AppProvider>
     </div>
   );
 };
