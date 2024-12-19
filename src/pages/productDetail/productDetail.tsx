@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { ShoppingCart, Heart, Search, ChevronDown, ChevronLeft, Star, Truck, RotateCcw, Shield, ChevronRight } from 'lucide-react'
 import Footer from '~/components/footer'
 import Navigation from '~/components/navigation'
-import { useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { webRoutes } from '~/routes/web'
 
 export interface ProductDetailProps {
   product: {
@@ -25,7 +26,7 @@ const ProductDetail: React.FC = () => {
       name: "3D™ wireless headset",
       price: 400,
       originalPrice: 500,
-      image: "/headPhone.jpg",
+      image: "/headPhone1.jpg",
       discount: 20,
       description: "Headset from Cambodia",
       colors: ['bg-white', 'bg-black', 'bg-gray-500'],
@@ -36,6 +37,11 @@ const ProductDetail: React.FC = () => {
   const [quantity, setQuantity] = useState(1)
   const { productId } = useParams(); // Retrieve productId from the URL
   console.log("Product ID:", product.image);
+
+  const navigate = useNavigate();
+  const handleNavigation = () => {
+    navigate(`${webRoutes.checkOut}`);
+};
 
 
   return (
@@ -128,7 +134,9 @@ const ProductDetail: React.FC = () => {
 
             {/* Add to Cart and Wishlist */}
             <div className="flex space-x-4 mb-8">
-              <button className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300">
+              <button className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300"
+              onClick={handleNavigation}
+              >
                 Add to Cart
               </button>
               <button className="flex items-center justify-center w-12 h-12 rounded-md border border-gray-300 hover:bg-gray-100 transition duration-300">

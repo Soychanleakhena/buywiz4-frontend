@@ -8,6 +8,7 @@ import AuthLayout from "~/components/authLayout";
 import RequiredRoute from "./requiredRoute";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import RegisterPage from "~/pages/register/register";
+import CheckoutPage from "~/pages/checkout/checkOutPage";
 
 export interface AppRoute {
   path?: string;
@@ -61,8 +62,12 @@ const appRoutes: AppRoute[] = [
         element: <Home />,
       },
       {
-        path: webRoutes.productDetail,
+        path: `${webRoutes.productDetail}/:productId`,
         element: <ProductDetail />,
+      },
+      {
+        path: `${webRoutes.checkOut}`,
+        element: <CheckoutPage />,
       },
     ],
   },

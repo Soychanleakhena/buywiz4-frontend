@@ -1,8 +1,9 @@
 export const webRoutes = {
     redirect: "/",
     home: "/home",
-    productDetail: "/product-detail/:productId",
+    productDetail: "/product-detail",
     login: "/login",
-    register: "/signup"
+    register: "/signup",
+    checkOut: "/checkout"
   };
   
