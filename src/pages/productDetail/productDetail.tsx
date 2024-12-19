@@ -41,7 +41,7 @@ const ProductDetail: React.FC = () => {
   const navigate = useNavigate();
   const handleNavigation = () => {
     navigate(`${webRoutes.checkOut}`);
-};
+  };
 
 
   return (
