@@ -32,6 +32,7 @@ const Login = () => {
 
   // Handle form submission
   const handleSubmit = async (e) => {
+    console.log("-- hi")
     e.preventDefault(); // Prevent default form submission behavior
     setLoading(true); // Set loading state to true
     setError(null); // Reset error state
@@ -42,7 +43,8 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/login', {
+      console.log("---- ", import.meta.env.VITE_BASE_URL)
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
