@@ -40,6 +40,13 @@ const ProductDetail: React.FC = () => {
 
   const navigate = useNavigate();
   const handleNavigation = () => {
+    const checkOutProduct = {
+      ... product,
+      color: selectedColor,
+      quantity: quantity
+    }
+    localStorage.setItem("productCheckout", JSON.stringify(checkOutProduct));
+    
     navigate(`${webRoutes.checkOut}`);
   };
 

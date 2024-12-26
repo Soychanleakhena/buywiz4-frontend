@@ -7,7 +7,7 @@ import ProductCard from '~/components/productCard'
 import { useAppContext } from '~/context/appContext'
 
 const Home = () => {
-  const { isMenuOpen, setIsMenuOpen } = useAppContext();
+  const { isMenuOpen } = useAppContext();
 
   return (
     <div className="min-h-screen bg-white">
