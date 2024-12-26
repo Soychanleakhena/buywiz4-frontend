@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ShoppingCart, Heart, Search, ChevronDown, ChevronLeft, Star, Truck, RotateCcw, Shield, ChevronRight } from 'lucide-react'
 import Footer from '~/components/footer'
 import Navigation from '~/components/navigation'
@@ -36,6 +36,7 @@ const ProductDetail: React.FC = () => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0])
   const [quantity, setQuantity] = useState(1)
   const { productId } = useParams(); // Retrieve productId from the URL
+  // const [product, setProduct] = useState<ProductDetailProps>()
   console.log("Product ID:", product.image);
 
   const navigate = useNavigate();
@@ -46,9 +47,31 @@ const ProductDetail: React.FC = () => {
       quantity: quantity
     }
     localStorage.setItem("productCheckout", JSON.stringify(checkOutProduct));
-    
+
     navigate(`${webRoutes.checkOut}`);
   };
+
+  const handleProductDetail = async (id: string) => {
+    const token = localStorage.getItem("token");
+    const response = await fetch(
+      `${import.meta.env.VITE_BASE_URL}/product/:id`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Something went wrong");
+    }
+    const result: ProductDetailProps = await response.json();
+    // setProduct(result)
+    handleNavigation()
+  };
+
 
 
   return (
@@ -189,4 +212,8 @@ const ProductDetail: React.FC = () => {
 }
 
 export default ProductDetail
+
+function useEffect(arg0: () => void, arg1: undefined[]) {
+  throw new Error('Function not implemented.')
+}
 
