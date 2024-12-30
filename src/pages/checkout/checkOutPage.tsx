@@ -67,7 +67,8 @@ const CheckoutPage: React.FC = () => {
     if(paymentMethod == "new"){
       const payload = {
           "quantity": product.quantity,
-          "productId": ""
+          "productId": "9dec93f0-7a74-4d70-a206-8f5bb710c628"
+          
       }
       const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/payment/card`, {
         method: 'POST',
@@ -88,11 +89,11 @@ const CheckoutPage: React.FC = () => {
 
       const payload = {
         "quantity": product.quantity,
-        "productId": "",
-        "tokenId": ""
+        "productId": "314bf9e9-ba20-44e0-90d3-c6945f995127",
+        "tokenId": "0025aee0-2aad-401f-9066-55a00cab9479"
       }
       
-      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/payment/tokenize`, {
+      const response = await fetch(`${import.meta.env.VITE_BASE_URL}/api/payments/tokenize`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
